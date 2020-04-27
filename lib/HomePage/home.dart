@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        title: Text('Criminal Alert'),
+        title: Text('Criminal Alert Client'),
       ),
       body: Center(
         child: Column(
