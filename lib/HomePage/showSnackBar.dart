@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   void alertSnackBar() {
@@ -31,3 +32,4 @@ GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     );
     scaffoldKey.currentState.showSnackBar(connectionSnackbar);
   }
+
