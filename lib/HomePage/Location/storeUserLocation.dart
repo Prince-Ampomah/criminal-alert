@@ -40,7 +40,7 @@ class UserLocation {
         GeoFirePoint geoPoint = _geoFlutterFire.point(
             latitude: _currentPosition.latitude,
             longitude: _currentPosition.longitude);
-        return locationCollection.add({
+        return await locationCollection.add({
           'userLocation': geoPoint.data,
         });
       } else {

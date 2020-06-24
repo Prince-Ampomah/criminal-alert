@@ -33,3 +33,18 @@ GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     scaffoldKey.currentState.showSnackBar(connectionSnackbar);
   }
 
+ void signInSnackbar() {
+    var alertSnackbar = SnackBar(
+      content: Text(
+        'Login Failed!',
+        textAlign: TextAlign.center,
+        style: TextStyle(letterSpacing: 0.5, fontWeight: FontWeight.w600),
+      ),
+      duration: Duration(seconds: 2),
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+    );
+    scaffoldKey.currentState.showSnackBar(alertSnackbar);
+  }

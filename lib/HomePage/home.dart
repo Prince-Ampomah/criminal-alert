@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:criminal_alert/HomePage/popUpMenu.dart';
 import 'package:criminal_alert/HomePage/showSnackBar.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/cupertino.dart';
@@ -14,7 +15,6 @@ class _HomePageState extends State<HomePage> {
 
   StreamSubscription<DataConnectionStatus> listener;
 
-
   @override
   void dispose() {
     listener.cancel();
@@ -27,11 +27,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        actions: <Widget>[
+        popupMenuButton(context),
+      ],
         elevation: 0.0,
-        title: Text('Criminal Alert Client'),
+        title: Text('Criminal Alert'),
       ),
-      body: Builder(builder: (context){
-        return Center(
+      body:Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -39,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () async => await UserLocation().storeUserLocation(),
                 icon: Icon(Icons.location_on, color: Colors.white),
                 label: Text('Alert Police Now!!', style: TextStyle(color: Colors.white),),
-                color: Colors.red.shade700,
+                color: Colors.red,
                 splashColor: Colors.white,
                 elevation: 5.0,
                 shape: RoundedRectangleBorder(
@@ -48,8 +51,7 @@ class _HomePageState extends State<HomePage> {
               ),
           ],
           ),
-        );
-      },),
+        )
     );
   }
 
