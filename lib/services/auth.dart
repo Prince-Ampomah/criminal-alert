@@ -44,6 +44,8 @@ Stream<User> get user{
   Future signOut() async{
     try{
       await _auth.signOut();
+      await _googleSignIn.disconnect();
+      await _googleSignIn.signOut();
       print('Signed Out');
 
     }catch(error){

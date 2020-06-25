@@ -1,7 +1,5 @@
-import 'dart:async';
 import 'package:criminal_alert/HomePage/popUpMenu.dart';
 import 'package:criminal_alert/HomePage/showSnackBar.dart';
-import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'Location/storeUserLocation.dart';
@@ -13,13 +11,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  StreamSubscription<DataConnectionStatus> listener;
+  // StreamSubscription<DataConnectionStatus> listener;
 
-  @override
-  void dispose() {
-    listener.cancel();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   listener.cancel();
+  //   super.dispose();
+  // }
 
 
   @override
