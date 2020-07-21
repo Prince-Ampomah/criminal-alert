@@ -36,7 +36,7 @@ GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
  void signInSnackbar() {
     var alertSnackbar = SnackBar(
       content: Text(
-        'Login Failed!',
+        'Login Failed!, Network Error',
         textAlign: TextAlign.center,
         style: TextStyle(letterSpacing: 0.5, fontWeight: FontWeight.w600),
       ),

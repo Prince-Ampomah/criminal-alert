@@ -1,16 +1,18 @@
 import 'dart:async';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:criminal_alert/HomePage/internetConnectivity.dart';
-import 'package:criminal_alert/HomePage/showSnackBar.dart';
+import 'package:criminal_alert/internet_connection/internetConnectivity.dart';
+import 'package:criminal_alert/services/database.dart';
+import 'package:criminal_alert/snackbar/showSnackBar.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:geoflutterfire/geoflutterfire.dart';
 import 'package:geolocator/geolocator.dart';
 
 class UserLocation {
+
   final Geolocator geoLocator = Geolocator();
   Position _currentPosition;
+  Geoflutterfire _geoFlutterFire = Geoflutterfire();
 
-  //Get User Location
+  //Get the LatLng Position
   Future _getCurrentUserLocation() async {
     try {
       await geoLocator
@@ -25,11 +27,6 @@ class UserLocation {
   }
 
 
-  //Database Instances
-  Geoflutterfire _geoFlutterFire = Geoflutterfire();
-  CollectionReference locationCollection =
-      Firestore.instance.collection('Location');
-
 // ignore: missing_return //Add User location in Firestore
   Future storeUserLocation() async {
     try {
@@ -40,9 +37,10 @@ class UserLocation {
         GeoFirePoint geoPoint = _geoFlutterFire.point(
             latitude: _currentPosition.latitude,
             longitude: _currentPosition.longitude);
-        return await locationCollection.add({
-          'userLocation': geoPoint.data,
-        });
+        return SaveVictimLocation().saveVictimLocation(geoPoint);
+//        return await locationCollection.add({
+//          'userLocation': geoPoint.data,
+//        });
       } else {
         Future.delayed(
             Duration(seconds: 2),
@@ -54,4 +52,5 @@ class UserLocation {
       print(e.toString());
     }
   }
+
 }

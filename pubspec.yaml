@@ -28,17 +28,22 @@ dependencies:
   geoflutterfire: ^2.1.0
   data_connection_checker: ^0.3.4
   firebase_auth: ^0.16.1
+  firebase_messaging: ^6.0.16
   google_sign_in: ^4.5.1
   provider:
-  flutter_spinkit: ^4.1.2+1
+  fluttertoast: ^5.0.1
   flutter_auth_buttons: ^0.8.0
+  curved_navigation_bar: ^0.3.3
+  intl: ^0.16.1
 
 
 
 dev_dependencies:
+  flutter_launcher_name: "^0.0.1"
   flutter_test:
     sdk: flutter
-
+flutter_launcher_name:
+  name: "Criminal Alert"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
